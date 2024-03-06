@@ -1,0 +1,36 @@
+.skills {
+    .body {
+        display: flex;
+        flex-flow: row wrap;
+        column-gap: 1%;
+        justify-content: space-evenly;
+        row-gap: 1em;
+
+        .skills__card {
+            width: 18%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 3px -2px 10px #d7d7d7, 4px 7px 3px #d7d7d7;
+
+            @include smallScreen() {
+                width: 33%;
+            }
+
+            @include x_smallScreen() {
+                width: 50%;
+            }
+
+            figure {
+                height: 100px;
+                margin: 0;
+                display: flex;
+                align-items: center;
+
+                img {
+                    height: 80%;
+                }
+            }
+        }
+    }
+}

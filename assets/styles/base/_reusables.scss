@@ -14,7 +14,7 @@ h6 {
 
 .block {
     box-sizing: border-box;
-    height: 430px;
+    min-height: 430px;
     margin: 4% 0%;
 
     @include x_smallScreen {
@@ -29,6 +29,8 @@ h6 {
         color: #fff;
         width: 95%;
         line-height: 2em;
+        margin: 0 auto 4%;
+        padding-left: 1%;
 
         @include x_smallScreen {
             font-size: 1.2rem;

@@ -12,7 +12,7 @@
 		<div class="body">
 			<div><img src="{{ asset('uploads/presentation/' ~ presentation.image)}}" alt="description"></div>
 			<div>
-				<p>{{ presentation.text}}</p>
+				<p>{{ presentation.text }}</p>
 			</div>
 			<div>
 				<a href="{{ asset('uploads/presentation/' ~ presentation.cv)}}" class="btn" target="_blank" title="Lancelle Clara CV">
@@ -23,4 +23,52 @@
 				</a>
 			</div>
 		</section>
+		<section class="block skills">
+			<h2 class="block__title">
+				Skills
+			</h2>
+			<div class="block__divider"></div>
+			<div class="body">
+				{% for skill in skills %}
+					<div class="skills__card">
+						<figure>
+							<img src="{{ asset('uploads/skills/' ~ skill.image)}}" alt="{{ skill.name }}">
+						</figure>
+						<h6>{{skill.name}}</h6>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
+		<section class="block degrees">
+			<h2 class="block__title">
+				Degrees
+			</h2>
+			<div class="block__divider"></div>
+			<div class="body">
+				{% for degree in degrees %}
+					<div class="degrees__card">
+						<figure>
+							<img src="{{ asset('uploads/degrees/' ~ degree.image)}}" alt="{{ degree.name }}">
+						</figure>
+						<h6>{{degree.name}}</h6>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
+		{# <section class="block achievements">
+											<h2 class="block__title">
+												Achievements
+											</h2>
+											<div class="block__divider"></div>
+											<div class="body">
+												{% for achievement in achievements %}
+													<div class="achievements__card">
+														<figure>
+															<img src="{{ asset('uploads/achievements/' ~ achievement.image)}}" alt="{{ achievement.title }}">
+														</figure>
+														<h6>{{achievement.title}}</h6>
+													</div>
+												{% endfor %}
+											</div>
+										</section> #}
 	{% endblock %}
