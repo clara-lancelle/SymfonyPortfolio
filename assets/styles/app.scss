@@ -1,7 +1,9 @@
-@import "utils/fonts";
-@import "utils/mixins";
-@import "utils/variables";
-@import "base/typography";
+@import "abstracts/fonts";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "base/normalizer";
+@import "base/reusables";
 @import "components/buttons";
 @import "components/burgerMenu";
-@import "components/header";
+@import "layout/header";
+@import "layout/presentation";

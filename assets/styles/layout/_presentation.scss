@@ -1,0 +1,52 @@
+.presentation {
+
+    .body {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        flex-flow: row wrap;
+        height: 100%;
+
+        div:nth-child(1) {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                border-radius: 100%;
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                object-position: 0 -20px;
+            }
+        }
+
+        :nth-child(2) {
+            width: 70%;
+
+            p {
+                padding: 0 10%;
+            }
+        }
+
+        :nth-child(3) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .btn {
+                background-color: $effects;
+                color: white;
+                width: 30%;
+
+                .bi {
+                    margin-left: 10px;
+
+                    path {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

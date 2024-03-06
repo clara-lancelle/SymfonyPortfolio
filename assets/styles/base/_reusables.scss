@@ -1,0 +1,46 @@
+p {
+    font-family: 'Outfit', sans-serif;
+    font-size: .8em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Belanosima", sans-serif;
+}
+
+.block {
+    box-sizing: border-box;
+    height: 430px;
+    margin: 4% 0%;
+
+    @include x_smallScreen {
+        margin: 15% 0%;
+        height: auto;
+    }
+
+    &__title {
+        font-size: 1.8em;
+        letter-spacing: 4px;
+        background-color: $titles;
+        color: #fff;
+        width: 95%;
+        line-height: 2em;
+
+        @include x_smallScreen {
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+    }
+
+    &__dividers {
+        border-top: 3px solid $effects;
+        width: 100px;
+        margin-bottom: 20px;
+    }
+}
