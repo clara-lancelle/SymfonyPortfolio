@@ -37,12 +37,25 @@ h6 {
             line-height: 1.4rem;
             margin-bottom: 20px;
         }
-
     }
 
-    &__dividers {
-        border-top: 3px solid $effects;
-        width: 100px;
-        margin-bottom: 20px;
+    &__body {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        flex-flow: row wrap;
     }
+
+    // &__dividers {
+    //     border-top: 3px solid $effects;
+    //     width: 100px;
+    //     margin-bottom: 20px;
+    // }
+}
+
+.background_effect {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    display: block;
 }

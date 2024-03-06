@@ -2,7 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Achievement;
+use App\Entity\Degree;
+use App\Entity\Illustration;
 use App\Entity\Presentation;
+use App\Entity\ProjectCategory;
 use App\Entity\Skill;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -34,5 +38,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Users', 'fas fa-list', User::class);
         yield MenuItem::linkToCrud('Presentation', 'fas fa-list', Presentation::class);
         yield MenuItem::linkToCrud('Skills', 'fas fa-list', Skill::class);
+        yield MenuItem::linkToCrud('Degrees', 'fas fa-list', Degree::class);
+        yield MenuItem::linkToCrud('Achievements', 'fas fa-list', Achievement::class);
+        yield MenuItem::linkToCrud('Illustrations', 'fas fa-list', Illustration::class);
+        yield MenuItem::linkToCrud('ProjectCategory', 'fas fa-list', ProjectCategory::class);
     }
 }
