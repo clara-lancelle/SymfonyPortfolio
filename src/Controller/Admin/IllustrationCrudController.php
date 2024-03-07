@@ -22,8 +22,8 @@ class IllustrationCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             ImageField::new('path')
-                ->setBasePath('uploads/degrees')
-                ->setUploadDir('public/uploads/degrees')
+                ->setBasePath('uploads/achievements')
+                ->setUploadDir('public/uploads/achievements')
                 ->setRequired($pageName != 'edit'),
         ];
     }
