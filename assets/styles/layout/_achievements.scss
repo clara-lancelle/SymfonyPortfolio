@@ -33,15 +33,18 @@
             width: 27%;
 
             @include smallScreen() {
-                width: 47%;
-            }
-
-            @include x_smallScreen() {
                 width: 100%;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                margin-bottom: 1em;
             }
 
             img {
                 width: 100%;
+
+                @include smallScreen {
+                    width: 45%;
+                }
             }
         }
 
@@ -56,6 +59,10 @@
 
             @include x_smallScreen() {
                 width: 100%;
+
+                blockquote {
+                    margin: 0;
+                }
             }
 
         }

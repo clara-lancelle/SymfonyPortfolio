@@ -1,10 +1,6 @@
 .presentation {
 
     .block__body {
-        // display: flex;
-        // align-items: center;
-        // padding: 20px;
-        // flex-flow: row wrap;
         height: 100%;
 
         div:nth-child(1) {
@@ -17,7 +13,11 @@
                 width: 200px;
                 height: 200px;
                 object-fit: cover;
-                object-position: 0 -20px;
+                object-position: 0 -10px;
+
+                @include smallScreen {
+                    height: 170px;
+                }
             }
         }
 
@@ -26,6 +26,14 @@
 
             p {
                 padding: 0 10%;
+            }
+
+            @include smallScreen {
+                width: 100%;
+
+                p {
+                    padding: 0;
+                }
             }
         }
 
@@ -46,6 +54,12 @@
                     path {
                         color: white;
                     }
+                }
+
+                @include smallScreen {
+                    width: 60%;
+                    font-size: 0.8em;
+                    line-height: 50px;
                 }
             }
         }

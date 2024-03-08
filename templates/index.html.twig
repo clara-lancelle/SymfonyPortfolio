@@ -5,7 +5,7 @@
 
 {% block body %}
 	<main class="container">
-		<section class="block presentation">
+		<section class="block presentation" id="me">
 			<h2 class="block__title">
 				About me
 			</h2>
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="block skills">
+		<section class="block skills" id="skills">
 			<h2 class="block__title">
 				Skills
 			</h2>
@@ -59,9 +59,9 @@
 				{% endfor %}
 			</div>
 		</section>
-		<section class="block achievements">
+		<section class="block achievements" id="achievements">
 			<h2 class="block__title">
-				achievements
+				Achievements
 			</h2>
 			<div class="block__body">
 				{% for achievement in achievements %}
@@ -79,10 +79,31 @@
 								🌐 See this project online at :<a href="{{achievement.link}}" target="_blank">{{achievement.link}}</a>
 							</p>
 						{% endif %}
-
 					</div>
 				{% endfor %}
 			</div>
 		</section>
+		<section class="block contact" id="contact">
+			<h2 class="block__title">
+				Contact
+			</h2>
+			<div class="block__body">
+				<a class="contact__link" href="mailto : lancelle.clara@hotmail.com" title="email link">
+					Email : lancelle.clara@hotmail.com
+				</a>
+
+				<a class="contact__link" href="https://www.linkedin.com/in/clara-lancelle-159634238/" target="_blank" title="linkedin link">
+					Linkedin : Lancelle Clara
+				</a>
+			</div>
+		</section>
 	</main>
+	<footer>
+		<div class="copy-right">
+			<p class="copy-right__text">
+				&copy; Lancelle Clara
+				{{ "now"|date("Y") }}
+			</p>
+		</div>
+	</footer>
 {% endblock %}

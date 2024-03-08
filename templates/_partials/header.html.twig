@@ -10,7 +10,7 @@
 			<div id="line-3"></div>
 		</div>
 
-		<nav role="navigation" id="nav_menus">
+		<nav role="navigation" id="menu">
 			<ul class="navbar__items">
 				<li class="navbar__items__link">
 					<a href="#me" title="Link to the 'about me' section">
@@ -32,37 +32,37 @@
 						Contact
 					</a>
 				</li>
+				{% if is_granted('ROLE_ADMIN') %}
+					<a class="navbar__items__auth" href="{{ path('admin') }}">Dashboard</a>
+				{% endif %}
+				{% if is_granted('ROLE_USER') %}
+					<a class="navbar__items__auth" href="{{ path('app_logout') }}">Logout</a>
+				{% else %}
+					<a class="navbar__items__auth" href="{{ path('app_login') }}">Login</a>
+				{% endif %}
 			</ul>
-			{% if is_granted('ROLE_ADMIN') %}
-				<a class="navbar__items__auth" href="{{ path('admin') }}">Dashboard</a>
-			{% endif %}
-			{% if is_granted('ROLE_USER') %}
-				<a class="navbar__items__auth" href="{{ path('app_logout') }}">Logout</a>
-			{% else %}
-				<a class="navbar__items__auth" href="{{ path('app_login') }}">Login</a>
-			{% endif %}
-		</ul>
-	</nav>
-</div>
-<div class="banner">
-	<div class="banner__content">
-		<header class="banner__header">
-			<h1 class="banner__header__title">Lancelle Clara</h1>
-			<h2 class="banner__header__subtitle">Student in Web development</h2>
-		</header>
-		<div class="banner__body">
-			<h3 class="banner__body__title">
-				Welcome to my portfolio
-			</h3>
-			<p class="banner__body__desc">
-				You will find here my achievements and some more informations.
-																																																																																																																																																											                        CV.
-			</p>
-		</div>
-		<a href="#me" id="scroll_down_btn" class="scroll-down" address="true">
-			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down-circle" viewbox="0 0 16 16">
-				<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-			</svg>
-		</a>
+		</nav>
 	</div>
-</div></header>
+	<div class="banner">
+		<div class="banner__content">
+			<header class="banner__header">
+				<h1 class="banner__header__title">Lancelle Clara</h1>
+				<h2 class="banner__header__subtitle">Student in Web development</h2>
+			</header>
+			<div class="banner__body">
+				<h3 class="banner__body__title">
+					Welcome to my portfolio
+				</h3>
+				<p class="banner__body__desc">
+					You will find here my achievements and some more informations.
+																																																																																																																																																																																														                        CV.
+				</p>
+			</div>
+			<a href="#me" id="scroll_down_btn" class="scroll-down" address="true">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down-circle" viewbox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+				</svg>
+			</a>
+		</div>
+	</div>
+</header>

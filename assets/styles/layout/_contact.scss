@@ -1,0 +1,29 @@
+.contact {
+    background-color: $titles;
+    min-height: auto;
+    margin-bottom: 0;
+
+    .block__title {
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-color: white;
+        text-underline-offset: .8em;
+        margin: 0 auto 2%;
+    }
+
+    .block__body {
+        align-items: flex-start;
+        padding: 2% 3%;
+        justify-content: space-evenly;
+
+        @include smallScreen {
+            padding: 10% 5%;
+            font-size: .8em;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $dark_white;
+    }
+}

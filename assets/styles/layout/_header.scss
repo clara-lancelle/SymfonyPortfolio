@@ -1,37 +1,39 @@
 // nav + banner
+@mixin x_smallScreen {
+    @media screen and (max-width: 699px) {
+        @content;
+    }
+}
 
 header {
     text-align: center;
 
     .navbar {
-        justify-content: center;
         background-color: $navbar;
         top: 0;
         left: 0;
         right: 0;
         z-index: 99;
         position: fixed;
-        display: grid;
-        grid-template-rows: 1fr;
+        display: flex;
         padding: 5px;
         grid-column-gap: 30px;
 
-        @include x_smallScreen {
-            grid-auto-flow: column;
+        @include x_smallScreen() {
+            flex-flow: row wrap;
             align-items: center;
             justify-content: space-between;
         }
 
         &__logo {
             margin: 2px;
-            grid-row: 1;
 
             img {
                 border-radius: 50px;
                 width: 60px;
                 height: 60px;
 
-                @include x_smallScreen {
+                @include x_smallScreen() {
                     width: 50px;
                     height: 50px;
                     padding: 0px;
@@ -41,60 +43,49 @@ header {
 
         nav {
             align-self: center;
-            grid-row: 1;
+            width: 100%;
 
             .navbar__items {
                 list-style: none;
-                display: inline-grid;
-                grid-template-columns: repeat(4, 200px);
-                justify-content: center;
+                display: flex;
+                justify-content: space-evenly;
                 align-items: center;
                 padding: 0px;
                 margin: 3px auto;
 
-                @include smallScreen {
-                    grid-template-columns: repeat(4, 150px);
-                }
-
-                @include x_smallScreen {
-                    grid-template-columns: 1fr;
-                }
-
-                &__link {
-
-                    a {
-                        color: $dark_white;
-                        font-family: "Raleway", sans-serif;
-                        font-size: 20px;
-                        text-decoration: none;
-
-                        @include smallScreen {
-                            font-size: 18px;
-                        }
-
-                        @include x_smallScreen {
-                            font-size: 15px;
-                        }
-
-                        &:hover {
-                            color: white;
-                        }
-                    }
+                &__link a {
+                    color: $dark_white;
                 }
 
                 &__auth {
-                    text-decoration: none;
                     color: $effects;
                 }
 
+                &__link a,
+                &__auth {
+                    font-family: "Raleway", sans-serif;
+                    font-size: 20px;
+                    text-decoration: none;
+
+                    @include smallScreen {
+                        font-size: 18px;
+                    }
+
+                    @include x_smallScreen {
+                        font-size: 15px;
+                    }
+
+                    &:hover {
+                        color: white;
+                    }
+                }
             }
         }
-
     }
 
     .banner {
-        background-image: "../../images/bgd.jpg";
-        background-size: cover;
+        // background-image: "../../images/bgd.jpg";
+        // background-size: cover;
         justify-content: center;
         align-items: center;
         padding: 5rem 0;
@@ -110,11 +101,11 @@ header {
 
         @include x_smallScreen {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1rem;
         }
 
 
-        h1.banner__header__title {
+        &__header__title {
             font-size: 4rem;
             line-height: 4rem;
             font-weight: 700;
@@ -123,7 +114,15 @@ header {
             color: $titles;
 
             @include x_smallScreen {
-                font-size: 2rem;
+                font-size: 1.7em;
+                line-height: 1.7em;
+                margin-bottom: 0;
+            }
+        }
+
+        &__header__subtitle {
+            @include x_smallScreen() {
+                font-size: 1em;
             }
         }
 
@@ -134,30 +133,9 @@ header {
             font-weight: lighter;
 
             @include x_smallScreen {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
             }
-        }
-
-        &__body__welcome {
-            font-size: 2rem;
-            letter-spacing: 4px;
-            color: rgba(74, 75, 78, 0.5411764706);
-            background-color: rgba(46, 61, 98, 0.1);
-            padding: 0.3rem 7rem;
-            margin-bottom: 5rem;
-
-            @include smallScreen {
-                font-size: 1.5rem;
-            }
-
-            @include x_smallScreen {
-                font-size: 1.3rem;
-            }
-
-            @include xx_smallScreen {
-                padding: 0.3rem;
-            }
-
         }
 
         &__body__desc {
@@ -166,7 +144,7 @@ header {
             margin-bottom: 2rem;
 
             @include x_smallScreen {
-                font-size: 1.2rem;
+                font-size: .8rem;
             }
         }
 

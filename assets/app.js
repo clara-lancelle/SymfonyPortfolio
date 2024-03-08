@@ -8,6 +8,11 @@ import './bootstrap.js';
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+// let scroll_up_btn = document.getElementById("scroll_up_btn");
+let scroll_down_btn = document.getElementById("scroll_down_btn");
+
+
+
 
 // burger menu
 let menu_btn = document.getElementById('menu-button');
@@ -19,26 +24,28 @@ menu_btn.addEventListener('click', () => {
     document.getElementById('line-3').classList.toggle('active');
 });
 
-let scroll_up_btn = document.getElementById("scroll_up_btn");
-let scroll_down_btn = document.getElementById("scroll_down_btn");
 
+// function scrollFunction() {
+//     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//         scroll_up_btn.style.display = "block";
+//     } else {
+//         scroll_up_btn.style.display = "none";
+//     }
+// }
+// // When the user scrolls down 20px from the top of the document, show the button
+// window.onscroll = function () { scrollFunction() };
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        scroll_up_btn.style.display = "block";
-    } else {
-        scroll_up_btn.style.display = "none";
-    }
-}
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () { scrollFunction() };
-
-scroll_up_btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-});
+// scroll_up_btn.addEventListener('click', () => {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+//     document.body.scrollTop = 0;
+//     document.documentElement.scrollTop = 0;
+// });
 
 scroll_down_btn.addEventListener('click', () => {
-    window.scrollTo({ bottom: })
+    let target = document.getElementById('me');
+    console.log(target)
+    window.scrollTo({
+        top: target.offsetTop,
+        behavior: 'smooth'
+    })
 })
