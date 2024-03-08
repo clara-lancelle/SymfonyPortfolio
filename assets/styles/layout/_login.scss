@@ -1,0 +1,25 @@
+.login_form {
+    display: flex;
+    padding: 0 5% 5%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+
+    label,
+    input {
+        width: 40%;
+
+        @include smallScreen() {
+            width: 90%;
+        }
+    }
+
+    input {
+        margin-bottom: 2em;
+        line-height: 1.5em;
+    }
+
+    button {
+        width: 20%;
+    }
+}

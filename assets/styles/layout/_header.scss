@@ -82,6 +82,11 @@ header {
                     }
                 }
 
+                &__auth {
+                    text-decoration: none;
+                    color: $effects;
+                }
+
             }
         }
 
@@ -99,7 +104,7 @@ header {
         margin-top: 68px;
 
         &--small {
-            min-height: 400px;
+            min-height: auto;
             padding: 3rem 0%;
         }
 

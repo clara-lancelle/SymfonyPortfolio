@@ -20,7 +20,7 @@ class IndexController extends AbstractController
             'presentation' => $presentationRepository->getPresentation(),
             'skills'       => $skillRepository->findAll(),
             'degrees'      => $degreeRepository->findAll(),
-            'achievements' => $degreeRepository->findAll(),
+            'achievements' => $achievementRepository->findAll(),
         ]);
     }
 }

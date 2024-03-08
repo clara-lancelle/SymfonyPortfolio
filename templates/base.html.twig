@@ -17,7 +17,11 @@
 		{% endblock %}
 	</head>
 	<body>
-		{{include('_partials/header.html.twig')}}
+		{% if app.request.pathinfo == "/login" %}
+			{{include('_partials/login_header.html.twig')}}
+		{% else %}
+			{{include('_partials/header.html.twig')}}
+		{% endif %}
 		{% block body %}{% endblock %}
 	</body>
 </html>

@@ -37,7 +37,7 @@
 						<figure>
 							<img src="{{ asset('uploads/skills/' ~ skill.image)}}" alt="{{ skill.name }}">
 						</figure>
-						<h6>{{skill.name}}</h6>
+						<h3 class="caption">{{skill.name}}</h3>
 					</div>
 				{% endfor %}
 			</div>
@@ -47,13 +47,14 @@
 				Degrees
 			</h2>
 			<div class="background_effect"></div>
+			<div class="background_effect"></div>
 			<div class="block__body">
 				{% for degree in degrees %}
 					<div class="degrees__card">
 						<figure>
 							<img src="{{ asset('uploads/degrees/' ~ degree.image)}}" alt="{{ degree.title }}">
 						</figure>
-						<h6>{{degree.title}}</h6>
+						<h3 class="caption">{{degree.title}}</h3>
 					</div>
 				{% endfor %}
 			</div>
@@ -62,15 +63,23 @@
 			<h2 class="block__title">
 				achievements
 			</h2>
-			<div class="background_effect"></div>
 			<div class="block__body">
 				{% for achievement in achievements %}
 					<div class="achievements__card">
-						<figure>
-							<img src="{{ asset('uploads/achievements/' ~ achievement.image)}}" alt="{{ achievement.title }}">
-						</figure>
-						<h6>{{achievement.title}}</h6>
-						<h6>{{achievement.created_at}}</h6>
+						<h3 class="achievements__card__title">{{achievement.title}}</h3>
+						<div class="achievements__card__images">
+							{% for illustration in achievement.illustrations %}
+								<img src="{{ asset('uploads/achievements/' ~ illustration.path)}}" alt="{{ illustration.name }}">
+							{% endfor %}
+						</div>
+
+						<div class="achievements__card__text">{{achievement.text |raw }}</div>
+						{% if achievement.link %}
+							<p class="achievements__card__link">
+								🌐 See this project online at :<a href="{{achievement.link}}" target="_blank">{{achievement.link}}</a>
+							</p>
+						{% endif %}
+
 					</div>
 				{% endfor %}
 			</div>

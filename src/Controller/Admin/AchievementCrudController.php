@@ -24,7 +24,7 @@ class AchievementCrudController extends AbstractCrudController
             'title',
             'start_date',
             'end_date',
-            'text',
+            TextEditorField::new('text'),
             'link',
             AssociationField::new('category'),
             AssociationField::new('illustrations')->setFormTypeOption('choice_label', 'name'),
