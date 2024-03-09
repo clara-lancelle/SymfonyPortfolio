@@ -31,9 +31,13 @@ class Skill
     #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'parent')]
     private Collection $skills;
 
+    #[ORM\ManyToMany(targetEntity: Achievement::class, mappedBy: 'skills')]
+    private Collection $achievements;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
+        $this->achievements = new ArrayCollection();
     }
     public function __toString(): string
     {
@@ -118,6 +122,33 @@ class Skill
             if ($skill->getParent() === $this) {
                 $skill->setParent(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Achievement>
+     */
+    public function getAchievements(): Collection
+    {
+        return $this->achievements;
+    }
+
+    public function addAchievement(Achievement $achievement): static
+    {
+        if (!$this->achievements->contains($achievement)) {
+            $this->achievements->add($achievement);
+            $achievement->addSkill($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAchievement(Achievement $achievement): static
+    {
+        if ($this->achievements->removeElement($achievement)) {
+            $achievement->removeSkill($this);
         }
 
         return $this;

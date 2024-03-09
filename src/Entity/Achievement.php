@@ -46,9 +46,13 @@ class Achievement
     #[ORM\JoinColumn(nullable: false)]
     private ?ProjectCategory $category = null;
 
+    #[ORM\ManyToMany(targetEntity: Skill::class, inversedBy: 'achievements')]
+    private Collection $skills;
+
     public function __construct()
     {
         $this->illustrations = new ArrayCollection();
+        $this->skills = new ArrayCollection();
     }
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
@@ -184,6 +188,30 @@ class Achievement
     public function setCategory(?ProjectCategory $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Skill>
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skill $skill): static
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills->add($skill);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): static
+    {
+        $this->skills->removeElement($skill);
 
         return $this;
     }

@@ -30,80 +30,100 @@
 			<h2 class="block__title">
 				Skills
 			</h2>
-
 			<div class="block__body">
 				{% for skill in skills %}
 					<div class="skills__card">
 						<figure>
 							<img src="{{ asset('uploads/skills/' ~ skill.image)}}" alt="{{ skill.name }}">
 						</figure>
-						<h3 class="caption">{{skill.name}}</h3>
-					</div>
-				{% endfor %}
-			</div>
-		</section>
-		<section class="block degrees">
-			<h2 class="block__title">
-				Degrees
-			</h2>
-			<div class="background_effect"></div>
-			<div class="background_effect"></div>
-			<div class="block__body">
-				{% for degree in degrees %}
-					<div class="degrees__card">
-						<figure>
-							<img src="{{ asset('uploads/degrees/' ~ degree.image)}}" alt="{{ degree.title }}">
-						</figure>
-						<h3 class="caption">{{degree.title}}</h3>
-					</div>
-				{% endfor %}
-			</div>
-		</section>
-		<section class="block achievements" id="achievements">
-			<h2 class="block__title">
-				Achievements
-			</h2>
-			<div class="block__body">
-				{% for achievement in achievements %}
-					<div class="achievements__card">
-						<h3 class="achievements__card__title">{{achievement.title}}</h3>
-						<div class="achievements__card__images">
-							{% for illustration in achievement.illustrations %}
-								<img src="{{ asset('uploads/achievements/' ~ illustration.path)}}" alt="{{ illustration.name }}">
-							{% endfor %}
+						<div class="skills__card__body">
+							{% if skill.text %}
+								<h3 class="caption">{{skill.name}}
+								</h3>
+								<i class="skill_arrow">⬇️</i>
+							</div>
+							<p class="skills__text">{{skill.text}}</p>
+						{% else %}
+							<h3 class="caption">{{skill.name}}
+							</h3>
 						</div>
+					{% endif %}
 
-						<div class="achievements__card__text">{{achievement.text |raw }}</div>
-						{% if achievement.link %}
-							<p class="achievements__card__link">
-								🌐 See this project online at :<a href="{{achievement.link}}" target="_blank">{{achievement.link}}</a>
-							</p>
-						{% endif %}
-					</div>
-				{% endfor %}
-			</div>
-		</section>
-		<section class="block contact" id="contact">
-			<h2 class="block__title">
-				Contact
-			</h2>
-			<div class="block__body">
-				<a class="contact__link" href="mailto : lancelle.clara@hotmail.com" title="email link">
-					Email : lancelle.clara@hotmail.com
-				</a>
-
-				<a class="contact__link" href="https://www.linkedin.com/in/clara-lancelle-159634238/" target="_blank" title="linkedin link">
-					Linkedin : Lancelle Clara
-				</a>
-			</div>
-		</section>
-	</main>
-	<footer>
-		<div class="copy-right">
-			<p class="copy-right__text">
-				&copy; Lancelle Clara
-				{{ "now"|date("Y") }}
-			</p>
+				</div>
+			{% endfor %}
 		</div>
-	</footer>
-{% endblock %}
+	</section>
+	<section class="block degrees">
+		<h2 class="block__title">
+			Degrees
+		</h2>
+		<div class="background_effect"></div>
+		<div class="background_effect"></div>
+		<div class="block__body">
+			{% for degree in degrees %}
+				<div class="degrees__card">
+					<figure>
+						<img src="{{ asset('uploads/degrees/' ~ degree.image)}}" alt="{{ degree.title }}">
+					</figure>
+					<h3 class="caption">{{degree.title}}</h3>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+	<section class="block achievements" id="achievements">
+		<h2 class="block__title">
+			Achievements
+		</h2>
+		<div class="block__body">
+			{% for achievement in achievements %}
+				<div class="achievements__card">
+					<h3 class="achievements__card__title">{{achievement.title}}</h3>
+					<div class="achievements__card__images">
+						{% for illustration in achievement.illustrations %}
+							<img src="{{ asset('uploads/achievements/' ~ illustration.path)}}" alt="{{ illustration.name }}">
+						{% endfor %}
+					</div>
+					<div class="achievements__card__skills">
+						Skills used :
+						<ul>
+							{% for skill in achievement.skills %}
+								<li>{{skill}}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<button class="achievements__card__btn btn">
+						See more
+					</button>
+					<div class="achievements__card__text">{{achievement.text |raw }}</div>
+					{% if achievement.link %}
+						<p class="achievements__card__link">
+							🌐 See this project online at :<a href="{{achievement.link}}" target="_blank">{{achievement.link}}</a>
+						</p>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+	<section class="block contact" id="contact">
+		<h2 class="block__title">
+			Contact
+		</h2>
+		<div class="block__body">
+			<a class="contact__link" href="mailto : lancelle.clara@hotmail.com" title="email link">
+				Email : lancelle.clara@hotmail.com
+			</a>
+
+			<a class="contact__link" href="https://www.linkedin.com/in/clara-lancelle-159634238/" target="_blank" title="linkedin link">
+				Linkedin : Lancelle Clara
+			</a>
+		</div>
+	</section>
+</main>
+<footer>
+	<div class="copy-right">
+		<p class="copy-right__text">
+			&copy; Lancelle Clara
+			{{ "now"|date("Y") }}
+		</p>
+	</div>
+</footer>{% endblock %}

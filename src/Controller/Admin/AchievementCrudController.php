@@ -28,6 +28,7 @@ class AchievementCrudController extends AbstractCrudController
             'link',
             AssociationField::new('category'),
             AssociationField::new('illustrations')->setFormTypeOption('choice_label', 'name'),
+            AssociationField::new('skills')->setFormTypeOption('choice_label', 'name'),
             DateTimeField::new('created_at')->setDisabled($pageName != 'edit' || $pageName != 'create'),
             DateTimeField::new('updated_at')->setDisabled($pageName != 'edit' || $pageName != 'create')
 

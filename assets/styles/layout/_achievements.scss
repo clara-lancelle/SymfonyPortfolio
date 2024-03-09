@@ -48,10 +48,35 @@
             }
         }
 
+        &__skills ul {
+            list-style: none;
+            display: flex;
+            width: 100%;
+            padding: 0;
+            flex-flow: row wrap;
+            row-gap: 0.5em;
+            column-gap: 2%;
+            font-family: 'Outfit', sans-serif;
+            font-size: .8em;
+        }
+
+        &__btn {
+            color: $dark_white;
+            background-color: $effects;
+            padding: 0 2em;
+            font-size: .8em;
+            line-height: 2.5em;
+        }
+
         &__text {
+            display: none;
             width: 70%;
             font-family: 'Outfit', sans-serif;
             font-size: .8em;
+
+            &.active {
+                display: flex;
+            }
 
             @include smallScreen() {
                 width: 50%;

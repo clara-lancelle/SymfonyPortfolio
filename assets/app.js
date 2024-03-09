@@ -7,13 +7,6 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
-// let scroll_up_btn = document.getElementById("scroll_up_btn");
-let scroll_down_btn = document.getElementById("scroll_down_btn");
-
-
-
-
 // burger menu
 let menu_btn = document.getElementById('menu-button');
 
@@ -24,7 +17,34 @@ menu_btn.addEventListener('click', () => {
     document.getElementById('line-3').classList.toggle('active');
 });
 
+// scroll down btn
 
+let scroll_down_btn = document.getElementById("scroll_down_btn");
+scroll_down_btn.addEventListener('click', () => {
+    let target = document.getElementById('me');
+    console.log(target)
+    window.scrollTo({
+        top: target.offsetTop,
+        behavior: 'smooth'
+    })
+})
+
+//display more of skills
+
+document.addEventListener('click', (e) => {
+    if (e.target.className == 'skill_arrow') {
+        let text = e.target.parentNode.nextElementSibling;
+        text.classList.toggle('active')
+    }
+})
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('achievements__card__btn')) {
+        let text = e.target.nextElementSibling;
+        text.classList.toggle('active')
+    }
+})
+
+// let scroll_up_btn = document.getElementById("scroll_up_btn");
 // function scrollFunction() {
 //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 //         scroll_up_btn.style.display = "block";
@@ -40,12 +60,3 @@ menu_btn.addEventListener('click', () => {
 //     document.body.scrollTop = 0;
 //     document.documentElement.scrollTop = 0;
 // });
-
-scroll_down_btn.addEventListener('click', () => {
-    let target = document.getElementById('me');
-    console.log(target)
-    window.scrollTo({
-        top: target.offsetTop,
-        behavior: 'smooth'
-    })
-})
