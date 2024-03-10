@@ -53,6 +53,10 @@ header {
                 padding: 0px;
                 margin: 3px auto;
 
+                @include smallScreen() {
+                    flex-flow: row wrap;
+                }
+
                 &__link a {
                     color: $dark_white;
                 }

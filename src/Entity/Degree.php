@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\DegreeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DegreeRepository::class)]
 class Degree
@@ -13,9 +14,11 @@ class Degree
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 355)]
     private ?string $image = null;
 

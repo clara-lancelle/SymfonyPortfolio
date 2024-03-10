@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
 class Skill
@@ -16,9 +17,11 @@ class Skill
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 355)]
     private ?string $image = null;
 
@@ -36,7 +39,7 @@ class Skill
 
     public function __construct()
     {
-        $this->skills = new ArrayCollection();
+        $this->skills       = new ArrayCollection();
         $this->achievements = new ArrayCollection();
     }
     public function __toString(): string

@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: AchievementRepository::class)]
@@ -18,18 +19,25 @@ class Achievement
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
     #[ORM\ManyToMany(targetEntity: Illustration::class, inversedBy: 'achievements')]
     private Collection $illustrations;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[Assert\NotBlank]
+    #[Assert\LessThanOrEqual('today')]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $start_date = null;
 
+    #[Assert\GreaterThanOrEqual(propertyPath: 'start_date')]
+    #[Assert\LessThanOrEqual('today')]
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $end_date = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $text = null;
 
@@ -42,6 +50,7 @@ class Achievement
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[Assert\NotBlank]
     #[ORM\ManyToOne(inversedBy: 'achievements')]
     #[ORM\JoinColumn(nullable: false)]
     private ?ProjectCategory $category = null;
@@ -52,7 +61,7 @@ class Achievement
     public function __construct()
     {
         $this->illustrations = new ArrayCollection();
-        $this->skills = new ArrayCollection();
+        $this->skills        = new ArrayCollection();
     }
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
@@ -113,7 +122,7 @@ class Achievement
         return $this->start_date;
     }
 
-    public function setStartDate(\DateTimeInterface $start_date): static
+    public function setStartDate(?\DateTimeInterface $start_date): static
     {
         $this->start_date = $start_date;
 

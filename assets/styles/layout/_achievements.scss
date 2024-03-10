@@ -3,7 +3,7 @@
         margin: 0 10%;
 
         @include smallScreen() {
-            margin: 0 5%;
+            margin: 0;
         }
     }
 
@@ -12,10 +12,14 @@
         flex-flow: row wrap;
         align-items: center;
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-evenly;
         border-bottom: grey solid 1px;
         padding-bottom: 2em;
         margin-bottom: 3em;
+
+        @include smallScreen {
+            margin-bottom: 1em;
+        }
 
         &__title {
             width: 100%;
@@ -24,6 +28,11 @@
             text-decoration-style: solid;
             text-decoration-color: $effects;
             text-underline-offset: .8em;
+
+            @include smallScreen {
+                font-size: 1.1rem;
+                text-underline-offset: 0.1em;
+            }
         }
 
         &__images {
@@ -58,6 +67,10 @@
             column-gap: 2%;
             font-family: 'Outfit', sans-serif;
             font-size: .8em;
+
+            @include smallScreen {
+                font-size: .6em;
+            }
         }
 
         &__btn {
@@ -70,20 +83,18 @@
 
         &__text {
             display: none;
-            width: 70%;
             font-family: 'Outfit', sans-serif;
             font-size: .8em;
+            flex-flow: column;
+            margin: 0 auto;
+            padding: 2%;
+            background: rgb(249, 249, 249);
 
             &.active {
                 display: flex;
             }
 
             @include smallScreen() {
-                width: 50%;
-            }
-
-            @include x_smallScreen() {
-                width: 100%;
 
                 blockquote {
                     margin: 0;
